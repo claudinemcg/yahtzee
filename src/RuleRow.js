@@ -8,6 +8,7 @@ class RuleRow extends Component {
           onClick={this.props.score === undefined ? this.props.doScore : null}>  
           {/* if there's no score then, give it a score when clicked otherwise you can't add in a new score */}
         <td className="RuleRow-name">{this.props.name}</td>
+        <td className="RuleRow-description">{this.props.description}</td>
         <td className="RuleRow-score">{this.props.score}</td>
       </tr>
     )
