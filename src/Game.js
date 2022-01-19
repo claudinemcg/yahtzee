@@ -3,6 +3,16 @@ import Dice from "./Dice";
 import ScoreTable from "./ScoreTable";
 import "./Game.css";
 
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faDiceOne,
+//   faDiceTwo,
+//   faDiceThree,
+//   faDiceFour,
+//   faDiceFive,
+//   faDiceSix
+// } from "@fortawesome/free-solid-svg-icons";
+
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
 
@@ -73,13 +83,14 @@ class Game extends Component {
     return (
       <div className='Game'>
         <header className='Game-header'>
-          <h1 className='App-title'>Yahtzee!</h1>
+          <h1 className='App-title'>Yahtzee! </h1>
 
           <section className='Game-dice-section'>
             <Dice
               dice={this.state.dice}
               locked={this.state.locked}
               handleClick={this.toggleLocked}
+              disabled={this.state.rollsLeft === 0}
             />
             <div className='Game-button-wrapper'>
               <button
