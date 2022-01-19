@@ -40,11 +40,15 @@
 }
 
 .RuleRow-name {
-  width: 50%;
+  width: 30%;
   text-align: left;
 }
 
 .RuleRow-score {
-  width: 50%;
+  width: 20%;
   text-align: right;
+}
+.RuleRow-description {
+  width: 50%;
+  text-align: center;
 }
