@@ -1,7 +1,26 @@
 import React, { Component } from "react";
 import "./Die.css";
+ 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDiceOne,
+  faDiceTwo,
+  faDiceThree,
+  faDiceFour,
+  faDiceFive,
+  faDiceSix
+} from "@fortawesome/free-solid-svg-icons";
+// library.add(faDiceOne,
+//   faDiceTwo,
+//   faDiceThree,
+//   faDiceFour,
+//   faDiceFive,
+//   faDiceSix)
 
 class Die extends Component {
+  static defaultProps = {
+    numberWords: [faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix ]
+  }
   constructor(props){
     super(props)
     this.handleClick = this.handleClick.bind(this);
@@ -12,15 +31,21 @@ class Die extends Component {
     // calling from Game to Dice to Die
       // pass in this.props.idx so toggleLocked(idx) can use the idx
   }
-  render() {
+  render() { 
+    let numWord = this.props.numberWords[this.props.val-1]
+    let classes = "Die "
+    if (this.props.locked) classes += "Die-locked ";
     return (
-      <button
-        className={"Die"}
-        style={{ backgroundColor: this.props.locked ? "grey" : "black" }}
-        onClick={this.handleClick} 
-      > 
-        {this.props.val}
-      </button>
+      
+        <FontAwesomeIcon 
+          icon={numWord}
+          size={"5x"}
+          className={classes}
+          onClick={this.handleClick} 
+          disabled= {this.props.disabled}/>
+      
+       
+     
     );
   }
 }
