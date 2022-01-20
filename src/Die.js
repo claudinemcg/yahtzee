@@ -13,7 +13,9 @@ import {
 
 class Die extends Component {
   static defaultProps = {
-    numberWords: [faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix ], val: 1
+
+    numberWords: [faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix ], val: 1 // displays 1 in beginning so dice aren't undefined
+
   }
   constructor(props){
     super(props)

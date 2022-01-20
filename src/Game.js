@@ -3,16 +3,6 @@ import Dice from "./Dice";
 import ScoreTable from "./ScoreTable";
 import "./Game.css";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faDiceOne,
-//   faDiceTwo,
-//   faDiceThree,
-//   faDiceFour,
-//   faDiceFive,
-//   faDiceSix
-// } from "@fortawesome/free-solid-svg-icons";
-
 const NUM_DICE = 5;
 const NUM_ROLLS = 3;
 
@@ -47,12 +37,13 @@ class Game extends Component {
   }
 
   componentDidMount(){
-    this.animateRoll()
+    this.animateRoll(); // so dice roll at the beginning, too
   }
   
   animateRoll(){
     this.setState({rolling: true} , () => {
-      setTimeout(this.roll, 1000)
+      setTimeout(this.roll, 1000) //calls roll method 
+
     });
   }
 
@@ -64,14 +55,17 @@ class Game extends Component {
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
       rollsLeft: st.rollsLeft - 1,
-      rolling: false
+
+      rolling: false // stop animation
+
     }));
   }
 
   toggleLocked(idx) {
     console.log(idx);
     // toggle whether idx is in locked or not
-    if (this.state.rollsLeft > 0 && !this.state.rolling) {
+
+    if (this.state.rollsLeft > 0 && !this.state.rolling) { //can't lock when dice rolling
       this.setState(st => ({
         locked: [
           ...st.locked.slice(0, idx), 
@@ -113,7 +107,7 @@ class Game extends Component {
                 
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {/* {if rollsLeft === 1 ? 1 Reroll Left : {this.state.rollsLeft} Reroll Left} */}
               </button>
             </div>
           </section>
