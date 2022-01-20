@@ -10,16 +10,10 @@ import {
   faDiceFive,
   faDiceSix
 } from "@fortawesome/free-solid-svg-icons";
-// library.add(faDiceOne,
-//   faDiceTwo,
-//   faDiceThree,
-//   faDiceFour,
-//   faDiceFive,
-//   faDiceSix)
 
 class Die extends Component {
   static defaultProps = {
-    numberWords: [faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix ]
+    numberWords: [faDiceOne, faDiceTwo, faDiceThree, faDiceFour, faDiceFive, faDiceSix ], val: 1
   }
   constructor(props){
     super(props)
@@ -35,6 +29,7 @@ class Die extends Component {
     let numWord = this.props.numberWords[this.props.val-1]
     let classes = "Die "
     if (this.props.locked) classes += "Die-locked ";
+    if (this.props.rolling) classes += "Die-rolling ";
     return (
       
         <FontAwesomeIcon 
