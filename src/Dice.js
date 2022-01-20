@@ -11,7 +11,9 @@ class Dice extends Component {
           locked={this.props.locked[idx]}
           idx={idx}
           key={idx}
-          disabled={this.props.disabled} />
+          disabled={this.props.disabled} 
+          rolling={this.props.rolling && !this.props.locked[idx]}/>
+          // only roll the dice that aren't locked
       )}
     </div>
   }
