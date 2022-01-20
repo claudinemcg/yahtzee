@@ -5,7 +5,14 @@ import { ones, twos, threes, fours, fives, sixes, threeOfKind, fourOfKind, fullH
 
 
 class ScoreTable extends Component {
-
+  getTotalScore(){
+    const { scores } = this.props;
+    let totalScore =0;
+    for (let key in scores) { // this.props.scores
+      if (scores[key]) totalScore += scores[key];
+    }
+    return totalScore
+  }
   render() {
     const { scores, doScore } = this.props;
 
@@ -14,8 +21,9 @@ class ScoreTable extends Component {
         <section className="ScoreTable-section">
           <h2>Upper</h2>
           <table cellSpacing="0">
-            <tbody>
-              <RuleRow name="Ones" description={ones.description} score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} />
+            <tbody>  
+              <RuleRow name="Ones" description={ones.description} score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} /> 
+              {/* scores.one == this.props.scores.ones (deconstructed above) */}
               <RuleRow name="Twos" description={twos.description} score={scores.twos} doScore={evt => doScore("twos", twos.evalRoll)} />
               <RuleRow name="Threes" description={threes.description} score={scores.threes} doScore={evt => doScore("threes", threes.evalRoll)} />
               <RuleRow name="Fours" description={fours.description} score={scores.fours} doScore={evt => doScore("fours", fours.evalRoll)} />
@@ -38,6 +46,7 @@ class ScoreTable extends Component {
             </tbody>
           </table>
         </section>
+        <h2>Total Score: {this.getTotalScore()} </h2>
       </div>
     )
   }

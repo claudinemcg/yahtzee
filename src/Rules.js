@@ -117,7 +117,7 @@ const threeOfKind = new SumDistro({ count: 3, description: "Sum all dice if 3 ar
 const fourOfKind = new SumDistro({ count: 4, description: "Sum all dice if 4 are the same" });
 
 // full house scores as flat 25
-const fullHouse = new FullHouse({ score: 2, description: "25 points for a Full House" });
+const fullHouse = new FullHouse({ score: 25, description: "25 points for a Full House" });
 
 // small/large straights score as 30/40
 const smallStraight = new SmallStraight({ score: 30, description: "30 points for a Small Straight" });

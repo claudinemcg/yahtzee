@@ -93,6 +93,7 @@ class Game extends Component {
     return messages[this.state.rollsLeft]
   }
   render() {
+    // const {dice, locked, rollsLeft, rolling, scores} = this.state;
     return (
       <div className='Game'>
         <header className='Game-header'>
@@ -109,11 +110,12 @@ class Game extends Component {
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0}
-                
-                onClick={this.animateRoll}
-                
-              >{this.displayRollnfo()} {/* button text */}
+                disabled={this.state.locked.every(x => x) || 
+                          this.state.rollsLeft === 0 || 
+                          this.state.rolling}
+                onClick={this.animateRoll} 
+              >
+                {this.displayRollnfo()} {/* button text */}
               </button>
             </div>
           </section>
