@@ -34,6 +34,7 @@ class Game extends Component {
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
     this.animateRoll = this.animateRoll.bind(this);
+    this.displayRollnfo = this.displayRollnfo.bind(this);
   }
 
   componentDidMount(){
@@ -55,16 +56,14 @@ class Game extends Component {
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
       rollsLeft: st.rollsLeft - 1,
-
       rolling: false // stop animation
 
     }));
   }
 
   toggleLocked(idx) {
-    console.log(idx);
+    // conosle.log(idx)
     // toggle whether idx is in locked or not
-
     if (this.state.rollsLeft > 0 && !this.state.rolling) { //can't lock when dice rolling
       this.setState(st => ({
         locked: [
@@ -85,7 +84,14 @@ class Game extends Component {
     }));
     this.animateRoll();
   }
-
+  
+  displayRollnfo() {
+    // { this.state.rollsLeft }
+    const messages = [
+      "0 Rolls Left", "1 Roll Left", "2 Rolls Left", "Starting Round"
+    ]
+    return messages[this.state.rollsLeft]
+  }
   render() {
     return (
       <div className='Game'>
@@ -106,8 +112,8 @@ class Game extends Component {
                 disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0}
                 
                 onClick={this.animateRoll}
-              >
-                {/* {if rollsLeft === 1 ? 1 Reroll Left : {this.state.rollsLeft} Reroll Left} */}
+                
+              >{this.displayRollnfo()} {/* button text */}
               </button>
             </div>
           </section>
