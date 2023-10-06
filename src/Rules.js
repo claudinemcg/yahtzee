@@ -66,8 +66,21 @@ class FullHouse extends Rule {
 
 /** Check for small straights. */
 
-class SmallStraight {
-  // TODO
+class SmallStraight extends Rule {
+  evalRoll = dice =>{
+    const d = new Set(dice.sort());
+  
+    /** small straight must be 4 different dice & in consective order*/
+    /** 234 with 1 or 5*/
+   if (d.has(2) && d.has(3) && d.has(4) && (d.has(1)  || d.has(5))) {
+    return this.score;
+   }
+  /** 3456 */
+   if (d.has(3) && d.has(4) && d.has(5) && d.has(6)) {
+    return this.score;
+  };
+  return 0;
+}
 }
 
 /** Check for large straights. */
