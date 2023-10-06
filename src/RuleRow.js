@@ -7,7 +7,7 @@ class RuleRow extends Component {
     const {score, name, doScore, description} = this.props;
     
     // if this.props.score is undefined (hasn't been used yet), do this.props.doScore, otherwise disable the doScore)
-    const disabled = score != undefined
+    const disabled = score !== undefined
     return (
       <tr 
           className={`RuleRow RuleRow-${disabled ? 'disabled' : 'active'}`}
