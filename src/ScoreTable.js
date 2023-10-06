@@ -68,8 +68,8 @@ class ScoreTable extends Component {
               doScore={evt => doScore("fullHouse", fullHouse.evalRoll)} />
               <RuleRow 
               name="Small Straight" 
-              score={scores.fullHouse} 
-              description={fullHouse.description}
+              score={scores.smallStraight} 
+              description={smallStraight.description}
               doScore={evt => doScore("smallStraight", smallStraight.evalRoll)} />
               <RuleRow 
               name="Large Straight" 
