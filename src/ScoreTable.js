@@ -5,6 +5,14 @@ import { ones, twos, threes, fours, fives, sixes, threeOfKind, fourOfKind, fullH
 
 
 class ScoreTable extends Component {
+  
+  calcScores = () => {
+    const {scores} = this.props;
+    let totalScore = 0;
+    for (let key in scores) {
+      if (scores[key]) totalScore += scores[key];
+    } return totalScore;
+  }
 
   render() {
     const { scores, doScore } = this.props;
@@ -88,6 +96,7 @@ class ScoreTable extends Component {
               doScore={evt => doScore("chance", chance.evalRoll)} />
             </tbody>
           </table>
+          <h2>TOTAL SCORE: {this.calcScores()} </h2>
         </section>
       </div>
     )

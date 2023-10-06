@@ -12,7 +12,6 @@ class Die extends Component {
   handleClick = () => {
     this.props.handleClick(this.props.idx)
   }
-
   
   render() {
     const {val, rolling, locked, icons, disabled} = this.props;
